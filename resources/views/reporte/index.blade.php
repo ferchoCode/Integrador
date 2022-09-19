@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="form-group col-xl-3 col-md-3s">
+            {{-- <div class="form-group col-xl-3 col-md-3s">
 
                 <select class="form-control" id="grupos">
                     <option value="">Buscar por Grupos</option>
@@ -28,7 +28,7 @@
                     @endforeach
 
                 </select>
-            </div>
+            </div> --}}
 
         </div>
         <div class="row">
@@ -46,53 +46,7 @@
     </section>
 @endsection
 @section('scripts')
-    {{-- <script>
-        $(document).on('click', '#grupos', function() {
-            let id = $(this).val();
-            console.log(id);
-            $.ajax({
-                type: "GET",
-                url: "reporte/buscagrupo/" + id,
-                data: {
-                    id: id,
-                },
-                success: function(response) {
-                    console.log(response[0]);
-                    $('#reporte').html('');
-                    for (var i = 0; i < response.length; i++) {
-
-                        var tr = `<tr>
-                    <td>` + response[i].nombre + `</td>
-                    <td>` + response[i].apellido + `</td>
-                    <td>` + response[i].materia + `</td>
-                    <td>` + response[i].nivel + `</td>
-                    // <td>` + response[i].grupo.nombre + `</td>
-
-                        </tr>`;
-                        $("#detalles").append(tr)
-                    }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {}
-            });
-        })
-    </script> --}}
-
-    {{-- <script>
-        // Write on keyup event of keyword input element
-        $(document).ready(function() {
-            $("#search").keyup(function() {
-                _this = this;
-                // Show only matching TR, hide rest of them
-                $.each($("#mytable tbody tr"), function() {
-                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                        $(this).hide();
-                    else
-                        $(this).show();
-                });
-            });
-        });
-    </script> --}}
-
+   
     <script>
         // Write on keyup event of keyword input element
         $(document).on('change', '#grupos', function(event) {

@@ -5,15 +5,14 @@ aria-haspopup="true" data-menu-toggle="hover">
     </a>
 </li>
 
-{{-- <li class="side-menus {{ Request::is('tipo-alquiler') ? 'active' : '' }}{{ Request::is('tipo-alquiler/*') ? 'active' : '' }}"
+<li class="side-menus {{ Request::is('act_area_activo') ? 'active' : '' }}{{ Request::is('act_area_activo/*') ? 'active' : '' }}"
     aria-haspopup="true" data-menu-toggle="hover">
-    <a class="menu-link menu-toggle" href="{{ url('tipo-alquiler') }}">
-        <i class=" fas fa-building"></i><span>-Alquiler</span>
+    <a class="menu-link menu-toggle" href="{{ url('act_area_activo') }}">
+        <i class=" fas fa-building"></i><span>- Banco</span>
     </a>
-   
-</li> --}}
+</li>
 
-<li class="side-menus {{ Request::is('alumno') ? 'active' : '' }}{{ Request::is('alumno/*') ? 'active' : '' }}"
+{{-- <li class="side-menus {{ Request::is('alumno') ? 'active' : '' }}{{ Request::is('alumno/*') ? 'active' : '' }}"
     aria-haspopup="true" data-menu-toggle="hover">
     <a class="menu-link menu-toggle" href="{{ url('alumno') }}">
         <i class=" fas fa-user"></i><span>-Alumno</span>
@@ -56,7 +55,7 @@ aria-haspopup="true" data-menu-toggle="hover">
     <a class="menu-link menu-toggle" href="{{ url('curso') }}">
         <i class=" fas fa-user"></i><span>-Curso</span>
     </a>
-</li>
+</li> --}}
 
 {{-- <li class="side-menus {{ Request::is('mascota') ? 'active' : '' }}{{ Request::is('masocta/*') ? 'active' : '' }}"
     aria-haspopup="true" data-menu-toggle="hover">
