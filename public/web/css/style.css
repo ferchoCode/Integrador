@@ -2108,7 +2108,7 @@ h6 .badge {
     right: 5px;
     position: fixed;
     z-index: 890;
-    background-color: #423eff;
+    background-color: #2b2b30;
 }
 
 .navbar.active {
@@ -3801,6 +3801,7 @@ body.layout-3 .main-footer {
     text-align: center;
     height: 80px;
     line-height: 60px;
+    background-color: #2b2b30;
 }
 
 .main-sidebar .sidebar-brand.sidebar-brand-sm {
@@ -3885,14 +3886,14 @@ body.layout-3 .main-footer {
 }
 
 .main-sidebar .sidebar-menu li a:hover {
-    background-color: #423eff;
+    background-color: #2b2b30;
     color: #ffffff;
 }
 
 .main-sidebar .sidebar-menu li.active a {
     color: #ffffff;
     font-weight: 600;
-    background-color: #423eff;
+    background-color: #2b2b30 ;
 }
 
 .main-sidebar .sidebar-menu li.active a.has-dropdown:after {

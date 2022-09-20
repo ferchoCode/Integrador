@@ -1,5 +1,5 @@
 <aside id="sidebar-wrapper">
-    <div class="sidebar-brand " style="background-color: #423eff;" >
+    <div class="sidebar-brand" >
         {{-- <img class="navbar-brand-full app-header-logo" src="{{ asset('img/logo1.png') }}" width="60"
              alt="Infyom Logo"> --}}
              <div class="d-flex justify-content-center align-items-end">
@@ -12,7 +12,10 @@
             <img class="navbar-brand-full" src="{{ asset('img/cachuchinlogo3.png') }}" width="45px" alt=""/>
         </a>
     </div>
-    <ul class="sidebar-menu">
-        @include('layouts.menu')
-    </ul>
+    <div class="overflow-auto">
+
+        <ul class="sidebar-menu " >
+            @include('layouts.menu')
+        </ul>
+    </div>
 </aside>

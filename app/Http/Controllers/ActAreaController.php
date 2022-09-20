@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class ActAreaController extends Controller
 {
     public function index()
     {
         
-        return view('actarea');
+        // $activo = ActFijo::getActivo();
+        return view('act_fijo.index',compact('activo'));
     }
 
     public function create()
