@@ -12,7 +12,7 @@
             <img class="navbar-brand-full" src="{{ asset('img/cachuchinlogo3.png') }}" width="45px" alt=""/>
         </a>
     </div>
-    <div class="overflow-auto">
+    <div class="">
 
         <ul class="sidebar-menu " >
             @include('layouts.menu')

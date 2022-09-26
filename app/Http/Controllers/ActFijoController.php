@@ -14,13 +14,10 @@ class ActFijoController extends Controller
    
     public function index()
     {        
-        $activo=ActFijo::with('categoria','area')->get();
+        $activo=ActFijo::with('categoria','area')->paginate(10);
         $categoria=ActCategoria::all();
         $area=ActArea::all();
-
-        // dd(($activo));
         return view('act_fijo.index',compact('activo','categoria','area'));
-
     }
 
    
@@ -32,7 +29,6 @@ class ActFijoController extends Controller
    
     public function store(Request $request)
     {
-        // dd($request);
         ActFijo::procedure($request);
         return redirect()->to('act_fijo')->with('success','Activo Registrado');
         // return redirect()->to('act_fijo')->with(['type'=>'success','message'=>'Activo Registrado']);

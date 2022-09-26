@@ -21,9 +21,11 @@ class ActFijo extends Model
     ];
 
     public static function procedure($request){
-        DB::select('CALL act_sp_crear_activo_fijo(?,?,?,?,?)',
-        array($request->area, $request->categoria, $request->codigo, $request->nombre, $request->fecha_ingreso));
+            DB::select('CALL act_sp_crear_activo_fijo(?,?,?,?,?,?)',
+            array($request->area, $request->categoria, $request->codigo, $request->nombre, $request->fecha_ingreso, $request->monto));
+    }
 
+    
         // return DB::select(DB::raw('CALL act_sp_crear_activo_fijo(?,?,?,?,?)', 
         // [
         //     $request->area, 
@@ -41,7 +43,6 @@ class ActFijo extends Model
         //     ':nombre_activo' => $request->nombre,
         // ]);
         // return DB::select("CALL act_sp_crear_activo_fijo(1,3,'032321232','Cosechadora','2022-09-20 12:01:18')");
-    }
 
 
     public function area()

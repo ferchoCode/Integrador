@@ -4,38 +4,31 @@
 @endsection
 @section('content')
     <section class="section">
-        <div class="section-header mb-3">
-            <h1 class="page__heading">Activo Fijo</h1>
+        <div class="section-header mb-4">
+            <h1 class="page__heading">Actualizacion de Activo</h1>
         </div>
         <div class="section-body">
-
+          
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header ">
-                            <div class="col-12">
-                                <div class="row mb-2">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crear">
-                                        Nuevo
-                                    </button>
-                                </div>
-                                {{-- <div class="row">
-                                    <a href="{{url('act_actualizacion')}}"  class="btn btn-primary" >
-                                        Actualizacion de Precio
-                                    </a>
-                                </div> --}}
+                        <div class="card-header">
+                            <div>
+                                <h1>{{$activo->codigo_activo}}</h1>
+                                <h1 class="fs-1">{{strtoupper($activo->nombre_activo)}}</h1>
                             </div>
                         </div>
-
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row ">
                                 <div class="col-3">
-
+                                    <div class="actualizar">
+                                        @include('act_actualizacion.actualizar')
+                                    </div>
                                 </div>
-                                <div class="col-auto">
-
+                         
+                                <div class="col-9 d-flex justify-content-center align-items-start">
                                     <div class="tabla">
-                                        @include('act_fijo.tabla')
+                                        @include('act_actualizacion.tabla')
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +38,7 @@
             </div>
         </div>
     </section>
-    @include('act_fijo.modal-create')
+    {{-- @include('act_fijo.modal-create') --}}
     {{-- @include('nivel.modal-edit') --}}
 @endsection
 
@@ -67,7 +60,54 @@
                 $(this).removeData('bs.modal');
             });
         });
+
+        $(document).on('click', '#tipo_especie', function() {
+            let id = $(this).val();
+            console.log(id);
+            $.ajax({
+                type: "GET",
+                url: "mascota/buscaraza/" + id,
+                data: {
+                    id: id,
+                },
+                success: function(response) {
+                    // console.log(response);
+                    var html_select = '<option value="">Seleccione Raza</option>';
+                    for (var i = 0; i < response.length; i++)
+                        // console.log(response[i].nombre);
+                        html_select += '<option value=" ' + response[i].id + ' ">' + response[i]
+                        .nombre + '</option>';
+                    $('#tipo_raza').html(html_select);
+                    console.log(html_select);
+
+                    // $.each(response, function(nombre,id){
+                    //     $.('#tipo_raza').append("<option value='"+ id "'>"+ value +"</option>")
+                    // })
+                    // $('#tabla').html(response);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {}
+            });
+        })
     </script>
+    <script>
+        $(document).ready(function() {
+            estado = 0;
+            $("#btnNuevo").click(function() {
+                if (estado == 0) {
+                    $('#crear_nuevo').slideDown('fast');
+                    $('#editar').slideUp('fast');
+                }
+                // $("#crear_nuevo").css("display", "none");
+                // $("#mielemento").css("display", "block");
+            });
+
+            $('#btnCancelar').click(function() {
+                $('#crear_nuevo').slideUp('fast');
+                estado = 0;
+            });
+        });
+    </script>
+
     <script>
         function getRaza(razas) {
             console.log(razas.especie.nombre);

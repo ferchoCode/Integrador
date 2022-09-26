@@ -50,8 +50,8 @@
 </li> --}}
 
 <li>
-    <a class="side-menus {{ Request::is('activos fijos')? 'collapse active' : 'collapsed' }} "
-    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example"  type="button">
+    <a class="side-menus {{ Request::is('activos fijos') ? 'collapse active' : 'collapsed' }} "
+        aria-controls="dropdown-example" data-collapse-toggle="dropdown-example" type="button">
         <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 transition duration-75" fill="currentColor" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
@@ -67,20 +67,24 @@
         </svg>
     </a>
 
-    <ul  id="dropdown-example" class="side-menu {{Request::is('activos fijos') ? 'show' : '' }} {{Request::is('area') ? 'show' : '' }}" >
-        <li class="side-menus {{ Request::is('categoria') ? 'active' : '' }} {{ Request::is('categoria/*') ? 'active' : '' }}"
+    <ul id="dropdown-example"
+        class="side-menu {{ Request::is('activos fijos') ? 'show' : '' }} {{ Request::is('area') ? 'show' : '' }}">
+        {{-- <li class="side-menus {{ Request::is('categoria') ? 'active' : '' }} {{ Request::is('categoria/*') ? 'active' : '' }}"
             aria-haspopup="true" data-menu-toggle="hover">
             <a href="#">
              <span class="flex-1 ml-5 text-left whitespace-nowrap">Categoria</span>
             </a>
-        </li>
-        <li class="side-menus {{ Request::is('act_fijo') ? 'active' : '' }} {{ Request::is('act_fijo/*') ? 'active' : '' }}"
+        </li> --}}
+        <li class="side-menus {{ Request::is('act_fijo') ? 'active' : '' }} 
+                                {{ Request::is('act_fijo/*') ? 'active' : '' }}
+                                {{ Request::is('act_actualizacion') ? 'active' : '' }} ,
+                                {{ Request::is('act_actualizacion/*') ? 'active' : '' }}"
             aria-haspopup="true" data-menu-toggle="hover">
-            <a href="{{url('act_fijo')}}"  >
-             <span class="flex-1 ml-5 text-left whitespace-nowrap">Activo</span>
+            <a href="{{ url('act_fijo') }}">
+                <span class="flex-1 ml-5 text-left whitespace-nowrap">Activo</span>
             </a>
         </li>
-        <li class="side-menus {{ Request::is('area') ? 'active' :''}} {{ Request::is('area/*') ? 'active' :''}}"
+        {{-- <li class="side-menus {{ Request::is('area') ? 'active' :''}} {{ Request::is('area/*') ? 'active' :''}}"
              aria-haspopup="true" data-menu-toggle="hover" >
             <a href="{{ url('area') }}">
                 <span class="flex-1 ml-5 text-left whitespace-nowrap">Area</span>
@@ -91,13 +95,60 @@
             <a href="#">
              <span class="flex-1 ml-5 text-left whitespace-nowrap">Responsable</span>
             </a>
-        </li>
+        </li> --}}
     </ul>
 </li>
 
 
 <li>
-    <a type="button" aria-controls="dropdown-example4" data-collapse-toggle="dropdown-example4">
+    <a type="button" class="side-menus {{ Request::is('credito') ? 'collapse active' : 'collapsed' }} "
+        aria-controls="dropdown-example4" data-collapse-toggle="dropdown-example4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+            class="flex-shrink-0 w-6 h-6 transition duration-75" viewBox="0 0 20 20">
+            <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+            <path
+                d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
+        </svg>
+        <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Credito</span>
+        <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+        </svg>
+    </a>
+    <ul id="dropdown-example4"
+        class="side-menu {{ Request::is('cre_cuenta_credito') ? 'show' : '' }} {{ Request::is('cre_cuenta_credito') ? 'show' : '' }}">
+
+        <li class="side-menus {{ Request::is('credito') ? 'active' : '' }},
+             {{ Request::is('credito/*') ? 'active' : '' }}"
+            aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ url('credito') }}">
+                <span class="flex-1 ml-5 text-left whitespace-nowrap">Credito</span>
+            </a>
+        </li>
+        <li class="side-menus {{ Request::is('cre_cuenta_credito') ? 'active' : '' }},
+        {{ Request::is('cre_cuenta_credito/*') ? 'active' : '' }}"
+            aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ url('cre_cuenta_credito') }}">
+                <span class="flex-1 ml-5 text-left whitespace-nowrap">CxC Credito</span>
+            </a>
+        </li>
+        {{-- <li class="side-menus {{ Request::is('banco') ? 'active' : '' }} {{ Request::is('banco/*') ? 'active' : '' }}"
+            aria-haspopup="true" data-menu-toggle="hover">
+            <a href="#" class="flex-1 ml-5 text-left whitespace-nowrap">
+                <span>Banco</span>
+            </a>
+        </li> --}}
+
+    </ul>
+</li>
+
+
+
+
+{{-- <li>
+    <a type="button" aria-controls="dropdown-example3" data-collapse-toggle="dropdown-example3">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path
                 d="M2 8v4.001h1V18H2v3h16l3 .001V21h1v-3h-1v-5.999h1V8L12 2 2 8zm4 10v-5.999h2V18H6zm5 0v-5.999h2V18h-2zm7 0h-2v-5.999h2V18zM14 8a2 2 0 1 1-4.001-.001A2 2 0 0 1 14 8z">
@@ -112,79 +163,6 @@
         </svg>
     </a>
 
-    <ul id="dropdown-example4">
-        <li class="side-menus {{ Request::is('cuenta_bancaria') ? 'active' : '' }} {{ Request::is('cuenta_bancaria/*') ? 'active' : '' }}"
-            aria-haspopup="true" data-menu-toggle="hover">
-            <a href="#"
-                class="flex items-center p-2 pl-15 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Cuenta Bancaria</a>
-        </li>
-        <li class="side-menus {{ Request::is('banco') ? 'active' : '' }} {{ Request::is('banco/*') ? 'active' : '' }}"
-            aria-haspopup="true" data-menu-toggle="hover">
-            <a href="#"
-                class="flex items-center p-2 pl-15 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                <span>Banco</span>
-            </a>
-        </li>
-        {{-- <li>
-            <a href="#"
-                class="flex items-center p-2 pl-15 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
-        </li> --}}
-    </ul>
-</li>
-
-
-
-
-{{-- <li>
-    <button type="button"
-        class="flex items-center p-2 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-        aria-controls="dropdown-example2" data-collapse-toggle="dropdown-example2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path
-                d="M2 8v4.001h1V18H2v3h16l3 .001V21h1v-3h-1v-5.999h1V8L12 2 2 8zm4 10v-5.999h2V18H6zm5 0v-5.999h2V18h-2zm7 0h-2v-5.999h2V18zM14 8a2 2 0 1 1-4.001-.001A2 2 0 0 1 14 8z">
-            </path>
-        </svg>
-        <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Banco</span>
-        <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-        </svg>
-    </button>
-    <ul id="dropdown-example2" class="hidden py-2 space-y-2">
-        <li>
-            <a href="#"
-                class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
-        </li>
-        <li>
-            <a href="#"
-                class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
-        </li>
-        <li>
-            <a href="#"
-                class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
-        </li>
-    </ul>
-</li> --}}
-<li>
-    <button type="button"
-        class="flex items-center p-2 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-        aria-controls="dropdown-example3" data-collapse-toggle="dropdown-example3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-            class="bi bi-cash-stack" viewBox="0 0 16 16">
-            <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-            <path
-                d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
-        </svg>
-        <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Credito</span>
-        <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-        </svg>
-    </button>
     <ul id="dropdown-example3" class="hidden py-2 space-y-2">
         <li>
             <a href="#"
@@ -199,7 +177,10 @@
                 class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900  transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
         </li>
     </ul>
-</li>
+</li> --}}
+
+
+
 {{-- <li class="menu-item menu-item-submenu
 {{ Request::is('reporte') ? 'menu-item-open' : '' }} {{ Request::is('reporte/*') ? 'menu-item-open' : '' }}
     {{ Request::is('act_area') ? 'menu-item-open' : '' }}
